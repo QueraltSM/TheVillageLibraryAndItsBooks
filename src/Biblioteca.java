@@ -1,6 +1,7 @@
 import java.util.*;
 public class Biblioteca {
     private SortedSet<Libro> listadelibros = new TreeSet<Libro>();
+    private SortedSet<Usuario> listadeusuarios = new TreeSet<Usuario>();
     private String result;
 
     public Biblioteca(){}
@@ -89,11 +90,38 @@ public class Biblioteca {
     }
 
 
-    public String toString(){
+    public String todosLosLibros(){
         String result = "";
         for (Libro l : listadelibros) {
             result += l.toString() + "\n";
         }
         return result;
+    }
+
+
+    public String todosLosUsuarios(){
+        String result = "";
+        for (Usuario l : listadeusuarios) {
+            result += l.toString() + "\n";
+        }
+        return result;
+    }
+
+
+    // Devuelve true si no está añadido el usuario
+    public boolean userIsnt(Usuario i){
+        for (Usuario j : listadeusuarios) {
+            if (j.equals(i)) return false;
+        }
+
+        return true;
+    }
+
+
+    public boolean añadirUsuario(Usuario i){
+        if (!userIsnt(i)) return false;
+        listadeusuarios.add(i);
+        return true;
+
     }
 }

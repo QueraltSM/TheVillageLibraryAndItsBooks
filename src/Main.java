@@ -8,12 +8,23 @@ public class Main {
         Relato r = new Relato("Lady Boopy", "La Manzana");
         Relato r2 = new Relato("Tejas verdes", "Hernán Valdés");
 
+        Usuario u1 = new Usuario("Jorge", "García");
+        Usuario u2 = new Usuario("Víctor", "López");
+        Usuario u3 = new Usuario("Aarón", "Velázquez");
+
+        b.añadirUsuario(u1);
+        b.añadirUsuario(u2);
+        b.añadirUsuario(u3);
+
         b.añadirLibro(p);
         b.añadirLibro(p2);
         b.añadirLibro(n);
         b.añadirLibro(r);
         b.añadirLibro(n2);
         b.añadirLibro(r2);
+
+
+        System.out.print(b.todosLosUsuarios());
 
     }
 }
