@@ -1,6 +1,4 @@
-
 public class Main {
-    
     public static void main(String[] args){
         Biblioteca b = new Biblioteca();
         Poesia p = new Poesia("Federico García Lorca","Romancero Gitano");
@@ -17,6 +15,5 @@ public class Main {
         b.añadirLibro(n2);
         b.añadirLibro(r2);
 
-        System.out.print(b.toString());
     }
 }
