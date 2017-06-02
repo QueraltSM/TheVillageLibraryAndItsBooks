@@ -9,6 +9,9 @@ public abstract class Libro implements Comparable<Libro> {
     }
 
 
+    public abstract int getId();
+
+
     public int compareTo(Libro l){
         if (titulo.compareTo(l.getTitulo())>0) {
             return 1;

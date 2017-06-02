@@ -2,7 +2,6 @@ import java.util.*;
 public class Biblioteca {
     private SortedSet<Libro> listadelibros = new TreeSet<Libro>();
     private SortedSet<Usuario> listadeusuarios = new TreeSet<Usuario>();
-    private String result;
 
     public Biblioteca(){}
 
@@ -72,37 +71,21 @@ public class Biblioteca {
     }
 
 
-    // Building
-    public void setOrden(int orden){
-        result = "";
-
-        if (orden == 0) { // libros ordenados en funcion de su titulo
 
 
-        } else if (orden == 1) { // libros ordenados por id de mayor a menor
-
-        }
-
-    }
-
-    public String getOrden(){
-        return result;
-    }
-
-
-    public String todosLosLibros(){
-        String result = "";
+    public List<Libro> todosLosLibros(){
+        List<Libro> result = new LinkedList<Libro>();
         for (Libro l : listadelibros) {
-            result += l.toString() + "\n";
+            result.add(l);
         }
         return result;
     }
 
 
-    public String todosLosUsuarios(){
-        String result = "";
+    public List<Usuario> todosLosUsuarios(){
+        List<Usuario> result = new LinkedList<Usuario>();
         for (Usuario l : listadeusuarios) {
-            result += l.toString() + "\n";
+            result.add(l);
         }
         return result;
     }

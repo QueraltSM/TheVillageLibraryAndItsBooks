@@ -23,8 +23,12 @@ public class Main {
         b.añadirLibro(n2);
         b.añadirLibro(r2);
 
+        u1.reservarLibro(p);
+        u1.reservarLibro(p2);
+        u2.reservarLibro(p);
 
-        System.out.print(b.todosLosUsuarios());
+
+        org.junit.runner.JUnitCore.runClasses(Pruebas.class);
 
     }
 }
