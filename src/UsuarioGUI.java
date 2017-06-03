@@ -45,6 +45,16 @@ public class UsuarioGUI extends JFrame {
         main.add(p3);
 
 
+
+        cancelar.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                apellidos.setText("");
+                nombre.setText("");
+            }
+        });
+
+
         salir.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {

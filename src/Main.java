@@ -27,8 +27,9 @@ public class Main {
         u1.reservarLibro(p2);
         u2.reservarLibro(p);
 
+        System.out.print(b.todoslibrosprestados());
 
-        org.junit.runner.JUnitCore.runClasses(Pruebas.class);
+        //org.junit.runner.JUnitCore.runClasses(Pruebas.class);
 
     }
 }

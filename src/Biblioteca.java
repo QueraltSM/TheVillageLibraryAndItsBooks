@@ -71,6 +71,15 @@ public class Biblioteca {
     }
 
 
+    public List<Libro> todoslibrosprestados(){
+        List<Libro> aux = new LinkedList<Libro>();
+
+        for (Libro i : listadelibros) {
+            if (i.getEstado()) aux.add(i);
+        }
+
+        return aux;
+    }
 
 
     public List<Libro> todosLosLibros(){

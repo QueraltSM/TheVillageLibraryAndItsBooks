@@ -53,6 +53,15 @@ public class GUI extends JFrame {
             }
         });
 
+
+        añadirlibro.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new LibroGUI();
+                main.dispose();
+            }
+        });
+
         p2.add(añadirlibro);
         main.add(p2, BorderLayout.CENTER);
 
