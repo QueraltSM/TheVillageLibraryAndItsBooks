@@ -1,7 +1,16 @@
-import java.util.*;
+import java.util.LinkedList;
+import java.util.List;
+import java.util.SortedSet;
+import java.util.TreeSet;
+
 public class Biblioteca {
     private SortedSet<Libro> listadelibros = new TreeSet<Libro>();
     private SortedSet<Usuario> listadeusuarios = new TreeSet<Usuario>();
+    private SortedSet<Libro> r;
+    private List<Libro> resultado;
+
+    protected static int orden;
+
 
     public Biblioteca(){}
 
@@ -24,17 +33,17 @@ public class Biblioteca {
     public boolean cleanCode(int l){
         for (Libro i : listadelibros) {
             if (i instanceof Relato) {
-                if (((Relato)i).getId() == l) {
+                if (i.getId() == l) {
                     return false;
                 }
 
             } else if (i instanceof Poesia) {
-                if (((Poesia)i).getId() == l) {
+                if (i.getId() == l) {
                     return false;
                 }
 
             } else if (i instanceof Novela) {
-                if (((Novela)i).getId() == l) {
+                if (i.getId() == l) {
                     return false;
                 }
 
@@ -46,17 +55,17 @@ public class Biblioteca {
     public Libro thisIs(int l) {
         for (Libro i : listadelibros) {
             if (i instanceof Relato) {
-                if (((Relato) i).getId() == l) {
+                if (i.getId() == l) {
                     return i;
                 }
 
             } else if (i instanceof Poesia) {
-                if (((Poesia) i).getId() == l) {
+                if (i.getId() == l) {
                     return i;
                 }
 
             } else if (i instanceof Novela) {
-                if (((Novela) i).getId() == l) {
+                if (i.getId() == l) {
                     return i;
                 }
 
@@ -109,6 +118,28 @@ public class Biblioteca {
         return true;
     }
 
+    public List<Libro> getOrden () {
+        return resultado;
+    }
+
+
+
+    public void setOrden(int n){
+        r = new TreeSet<Libro>();
+        resultado = new LinkedList<Libro>();
+
+        orden = n;
+
+        for (Libro i : listadelibros) {
+            r.add(i);
+        }
+
+        for (Libro i : r) {
+            resultado.add(i);
+        }
+
+
+    }
 
     public boolean añadirUsuario(Usuario i){
         if (!userIsnt(i)) return false;

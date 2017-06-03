@@ -2,7 +2,7 @@ public class Main {
     public static void main(String[] args){
         Biblioteca b = new Biblioteca();
         Poesia p = new Poesia("Federico García Lorca","Romancero Gitano");
-        Poesia p2 = new Poesia("Gustavo Adolfo Bécquer","Rimas y Leyendas");
+        Poesia p2 = new Poesia("Gustavo Adolfo Bécquer","Amor Eterno");
         Novela n = new Novela("Vladimir Nabókov", "Lolita");
         Novela n2 = new Novela("Alexandre Dumas", "El conde de Monte Cristo");
         Relato r = new Relato("Lady Boopy", "La Manzana");
@@ -27,7 +27,8 @@ public class Main {
         u1.reservarLibro(p2);
         u2.reservarLibro(p);
 
-        System.out.print(b.todoslibrosprestados());
+        b.setOrden(1);
+        System.out.print(b.getOrden());
 
         //org.junit.runner.JUnitCore.runClasses(Pruebas.class);
 

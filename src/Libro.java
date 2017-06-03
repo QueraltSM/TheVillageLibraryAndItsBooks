@@ -2,6 +2,11 @@ public abstract class Libro implements Comparable<Libro> {
     private String titulo, autor;
     private Boolean prestado;
 
+    public int getOrdenNum(){
+        return Biblioteca.orden;
+    }
+
+
     public Libro(String autor, String titulo){
         this.titulo = titulo;
         this.autor = autor;
@@ -11,30 +16,28 @@ public abstract class Libro implements Comparable<Libro> {
 
     public abstract int getId();
 
-
     public int compareTo(Libro l){
-        if (titulo.compareTo(l.getTitulo())>0) {
-            return 1;
-        } else if (titulo.compareTo(l.getTitulo())==0) {
-            return 0;
+
+        if (getOrdenNum() == 0) {
+            if (titulo.compareTo(l.getTitulo()) > 0) {
+                return 1;
+            } else if (titulo.compareTo(l.getTitulo()) == 0) {
+                return 0;
+            }
+            return -1;
+
+        } else if (getOrdenNum()==1) {
+            if (autor.compareTo(l.getAutor()) > 0) {
+                return 1;
+            } else if (autor.compareTo(l.getAutor()) == 0) {
+                return 0;
+            }
+            return -1;
+
         }
-        return -1;
+        return 2;
     }
 
-    public boolean equals(Libro l){
-        return l.getTitulo().equals(titulo);
-    }
-
-    public int setIdTipoDeLibro() {
-        if (this instanceof Relato) {
-            return 2;
-        } else if (this instanceof Poesia) {
-            return 3;
-        } else if (this instanceof Novela) {
-            return 1;
-        }
-        return -1;
-    }
 
     public String getTitulo(){
         return titulo;

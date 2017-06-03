@@ -1,3 +1,5 @@
+import javafx.scene.control.RadioButton;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,9 +13,28 @@ public class GUI extends JFrame {
     private DefaultListModel dlm = new DefaultListModel();
     private JPanel p1 = new JPanel();
     private JPanel p2 = new JPanel();
+    private JPanel p = new JPanel();
+    private JPanel aux = new JPanel();
 
     private JButton añadirlibro = new JButton("Añadir libro");
     private JButton añadirUsuario = new JButton("Añadir usuario");
+
+    private JRadioButton portitulo = new JRadioButton("Por titulo");
+    private JRadioButton porautor = new JRadioButton("Por autor");
+    private ButtonGroup bg = new ButtonGroup();
+
+    private JButton salir = new JButton("Salir"); // esquina derecha del sur
+
+    private JPanel sur = new JPanel();
+    private JPanel sureste = new JPanel();
+    private JPanel sursureste = new JPanel();
+
+
+    private JScrollBar derecha = new JScrollBar();
+
+
+
+
 
     public static Biblioteca getBiblioteca(){
         return b;
@@ -33,13 +54,24 @@ public class GUI extends JFrame {
 
     public GUI(){
         init();
+
+
+
+        aux.setLayout(new GridLayout(4,1));
+        bg.add(porautor);
+        bg.add(portitulo);
+
+
         for (Libro i : b.todosLosLibros()) {
             dlm.addElement(i);
         }
 
+        JPanel a = new JPanel();
         listalibros.setModel(dlm);
-        p1.add(listalibros, BorderLayout.CENTER);
-        main.add(p1, BorderLayout.NORTH);
+        a.add(listalibros);
+        a.add(derecha);
+
+        p1.add(a, BorderLayout.CENTER);
 
 
         p2.setLayout(new FlowLayout());
@@ -63,7 +95,24 @@ public class GUI extends JFrame {
         });
 
         p2.add(añadirlibro);
-        main.add(p2, BorderLayout.CENTER);
+
+        p.add(new Label("Ordenar por: "));
+        p.add(porautor);
+        p.add(portitulo);
+
+        aux.add(p1);
+        aux.add(p2);
+        aux.add(p);
+
+
+
+        //sureste.add(salir, BorderLayout.EAST);
+        main.add(sur, BorderLayout.SOUTH);
+        sur.add(salir, BorderLayout.EAST);
+
+        main.add(aux, BorderLayout.CENTER);
+
+
 
 
         main.setTitle("Biblioteca GUI");
