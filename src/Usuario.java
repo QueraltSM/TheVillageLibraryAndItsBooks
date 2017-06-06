@@ -4,6 +4,10 @@
 import java.util.*;
 
 public class Usuario implements Comparable<Usuario> {
+
+    private SortedSet<Usuario> usuariosbiblioteca = Biblioteca.getUsuarios();
+    private SortedSet<Libro> librosbiblioteca = Biblioteca.getLibros();
+
     private String nombre, apellidos;
     private ArrayList<Libro>libros = new ArrayList<Libro>();
     private static int maxId = 0;
@@ -22,16 +26,17 @@ public class Usuario implements Comparable<Usuario> {
     }
 
     public boolean reservarLibro(Libro l){
-        if (l.getEstado()) return false; // esta prestado
-        if (librosprestados<7) {
+        if (!librosbiblioteca.contains(l) || l.getEstado()
+                || !usuariosbiblioteca.contains(getUsuario()) || librosprestados>=7) return false;
             libros.add(l);
             librosprestados++;
             l.setEstado(true);
             return true;
-        }
-        return false;
     }
 
+    public Usuario getUsuario(){
+        return this;
+    }
 
     public int getId(){
         return idUser;

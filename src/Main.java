@@ -27,7 +27,7 @@ public class Main {
         u1.reservarLibro(p2);
         u2.reservarLibro(p);
 
-        b.setOrden(1);
+        b.setOrden(0);
         System.out.print(b.getOrden());
 
         //org.junit.runner.JUnitCore.runClasses(Pruebas.class);

@@ -1,19 +1,41 @@
-import java.util.LinkedList;
-import java.util.List;
-import java.util.SortedSet;
-import java.util.TreeSet;
+import java.util.*;
 
 public class Biblioteca {
-    private SortedSet<Libro> listadelibros = new TreeSet<Libro>();
-    private SortedSet<Usuario> listadeusuarios = new TreeSet<Usuario>();
+    private static SortedSet<Libro> listadelibros = new TreeSet<Libro>();
+    private static SortedSet<Usuario> listadeusuarios = new TreeSet<Usuario>();
     private SortedSet<Libro> r;
     private List<Libro> resultado;
-
     protected static int orden;
 
 
-    public Biblioteca(){}
+    public Biblioteca(){
+    }
 
+    public static SortedSet<Libro> getLibros() {
+        return listadelibros;
+    }
+
+    public boolean reservarLibro(Usuario u, Libro l) {
+        if (!listadeusuarios.contains(u) || !listadelibros.contains(l)) return false;
+        u.reservarLibro(l);
+        return true;
+    }
+
+    public List<Usuario> usuariosConLibrosPrestados () {
+        List<Usuario> result = new LinkedList<>();
+        for (Usuario i : listadeusuarios) {
+            if (i.getlibrosprestados() != 0) {
+                result.add(i);
+            }
+        }
+        return result;
+    }
+
+
+
+    public static SortedSet<Usuario> getUsuarios() {
+        return listadeusuarios;
+    }
 
     public boolean estaPrestado(int id) {
         return true;

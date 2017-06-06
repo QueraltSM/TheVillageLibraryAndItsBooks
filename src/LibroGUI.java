@@ -9,9 +9,6 @@ public class LibroGUI extends Frame {
     private JTextField autor = new JTextField(10);
 
     private JPanel p1 = new JPanel();
-    private JPanel p2 = new JPanel();
-    private JPanel p3 = new JPanel();
-    private JPanel p4 = new JPanel();
 
     private JButton salir = new JButton("Salir");
     private Button añadir = new Button("Añadir");
@@ -26,6 +23,8 @@ public class LibroGUI extends Frame {
         poesia = new Checkbox("Poesía", cbg, false);
         novela  = new Checkbox("Novela", cbg, false);
         relato = new Checkbox("Relato", cbg, false);
+
+
 
 
         p1.setLayout(new GridLayout(4, 1));
